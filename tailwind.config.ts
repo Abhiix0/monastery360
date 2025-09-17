@@ -14,6 +14,14 @@ export default {
     },
     extend: {
       colors: {
+        /* Monastery360 Brand Colors */
+        "japanese-carmine": "hsl(var(--japanese-carmine))",
+        "sinopia": "hsl(var(--sinopia))",
+        "cadmium-orange": "hsl(var(--cadmium-orange))",
+        "straw": "hsl(var(--straw))",
+        "rose-taupe": "hsl(var(--rose-taupe))",
+        
+        /* Semantic Colors */
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

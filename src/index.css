@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Monastery360 Design System - Exact color palette as requested
+All colors MUST be HSL for proper theming.
 */
 
 @layer base {
   :root {
+    /* Core Monastery360 Brand Colors */
+    --japanese-carmine: 359 56% 39%;       /* #9C282A - primary header, nav, main CTAs */
+    --sinopia: 15 84% 44%;                 /* #D05112 - secondary highlights */
+    --cadmium-orange: 33 91% 58%;          /* #F68F30 - accent buttons, hover states */
+    --straw: 55 69% 69%;                   /* #EBE175 - section backgrounds */
+    --rose-taupe: 21 24% 45%;              /* #90655A - text, borders, subtle UI */
+    
+    /* Semantic Color Mapping */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: var(--rose-taupe);
+    
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: var(--rose-taupe);
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: var(--rose-taupe);
+    
+    --primary: var(--japanese-carmine);
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: var(--straw);
+    --secondary-foreground: var(--rose-taupe);
+    
+    --muted: var(--straw);
+    --muted-foreground: var(--rose-taupe);
+    
+    --accent: var(--cadmium-orange);
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: hsl(var(--rose-taupe) / 0.2);
+    --input: hsl(var(--rose-taupe) / 0.1);
+    --ring: var(--japanese-carmine);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --radius: 0.75rem;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    /* Custom Monastery360 Design Tokens */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--japanese-carmine)), hsl(var(--sinopia)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--cadmium-orange)), hsl(var(--straw)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--japanese-carmine) / 0.9), hsl(var(--sinopia) / 0.8));
+    
+    --shadow-soft: 0 4px 20px hsl(var(--japanese-carmine) / 0.1);
+    --shadow-card: 0 2px 15px hsl(var(--rose-taupe) / 0.15);
+    --shadow-hover: 0 8px 30px hsl(var(--cadmium-orange) / 0.2);
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +120,49 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Monastery360 Component Styles */
+  .monastery-hero {
+    @apply bg-gradient-to-br from-[hsl(var(--japanese-carmine))] via-[hsl(var(--sinopia))] to-[hsl(var(--cadmium-orange))];
+  }
+  
+  .monastery-card {
+    @apply bg-card border border-[hsl(var(--rose-taupe)/0.2)] rounded-xl shadow-[var(--shadow-card)] 
+           hover:shadow-[var(--shadow-hover)] transition-[var(--transition-smooth)]
+           hover:-translate-y-1 hover:scale-[1.02];
+  }
+  
+  .monastery-btn-primary {
+    @apply bg-[hsl(var(--japanese-carmine))] hover:bg-[hsl(var(--sinopia))] 
+           text-white font-semibold px-6 py-3 rounded-xl
+           transition-[var(--transition-smooth)] shadow-[var(--shadow-soft)]
+           hover:shadow-[var(--shadow-hover)] hover:-translate-y-0.5;
+  }
+  
+  .monastery-btn-accent {
+    @apply bg-[hsl(var(--cadmium-orange))] hover:bg-[hsl(var(--sinopia))]
+           text-white font-semibold px-6 py-3 rounded-xl
+           transition-[var(--transition-smooth)] shadow-[var(--shadow-soft)]
+           hover:shadow-[var(--shadow-hover)] hover:-translate-y-0.5;
+  }
+  
+  .monastery-section {
+    @apply bg-[hsl(var(--straw)/0.1)] py-16;
+  }
+  
+  .monastery-text-primary {
+    @apply text-[hsl(var(--japanese-carmine))];
+  }
+  
+  .monastery-text-secondary {
+    @apply text-[hsl(var(--rose-taupe))];
+  }
+  
+  .monastery-border {
+    @apply border-[hsl(var(--rose-taupe)/0.2)];
   }
 }
