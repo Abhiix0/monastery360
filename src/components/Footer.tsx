@@ -4,7 +4,7 @@ import monasteryLogo from "@/assets/monastery-logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-japanese-carmine text-white">
+    <footer className="bg-deep-walnut text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Section */}
@@ -18,13 +18,13 @@ const Footer = () => {
               virtual tours, and authentic cultural events.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="p-2 rounded-full bg-sinopia/20 hover:bg-sinopia transition-colors">
+              <a href="#" className="p-2 rounded-full bg-warm-terracotta/20 hover:bg-warm-terracotta transition-colors">
                 <Facebook size={20} />
               </a>
-              <a href="#" className="p-2 rounded-full bg-sinopia/20 hover:bg-sinopia transition-colors">
+              <a href="#" className="p-2 rounded-full bg-warm-terracotta/20 hover:bg-warm-terracotta transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="p-2 rounded-full bg-sinopia/20 hover:bg-sinopia transition-colors">
+              <a href="#" className="p-2 rounded-full bg-warm-terracotta/20 hover:bg-warm-terracotta transition-colors">
                 <Instagram size={20} />
               </a>
             </div>
@@ -47,15 +47,15 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3">
-                <Mail size={16} className="text-cadmium-orange" />
+                <Mail size={16} className="text-warm-terracotta" />
                 <span className="text-white/80">info@monastery360.com</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Phone size={16} className="text-cadmium-orange" />
+                <Phone size={16} className="text-warm-terracotta" />
                 <span className="text-white/80">+1 (555) 123-4567</span>
               </div>
               <div className="flex items-center space-x-3">
-                <MapPin size={16} className="text-cadmium-orange" />
+                <MapPin size={16} className="text-warm-terracotta" />
                 <span className="text-white/80">Sacred Valley, Tibet</span>
               </div>
             </div>

@@ -11,42 +11,42 @@ const Home = () => {
       title: "Explore Monasteries",
       description: "Discover sacred sites from around the world with detailed information and stunning imagery.",
       link: "/explore",
-      color: "text-japanese-carmine"
+      color: "text-deep-charcoal"
     },
     {
       icon: Calendar,
       title: "Events & Booking",
       description: "Join festivals, meditation retreats, and cultural ceremonies at authentic monastery locations.",
       link: "/events",
-      color: "text-sinopia"
+      color: "text-warm-terracotta"
     },
     {
       icon: Archive,
       title: "Digital Archives",
       description: "Access rare manuscripts, historical artifacts, and sacred art from monastery collections.",
       link: "/archives",
-      color: "text-cadmium-orange"
+      color: "text-muted-gold"
     },
     {
       icon: Camera,
       title: "Virtual Tours",
       description: "Experience immersive 360° tours of monastery halls, gardens, and meditation spaces.",
       link: "/tours",
-      color: "text-japanese-carmine"
+      color: "text-earthy-green"
     },
     {
       icon: MessageCircle,
       title: "Monk Chatbot",
       description: "Get guidance on meditation, philosophy, and spiritual practices from our AI monk assistant.",
       link: "/chatbot",
-      color: "text-sinopia"
+      color: "text-cool-slate-blue"
     },
     {
       icon: Mountain,
       title: "About Our Mission",
       description: "Learn how Monastery360 preserves and shares the world's monastic heritage digitally.",
       link: "/about",
-      color: "text-cadmium-orange"
+      color: "text-warm-terracotta"
     }
   ];
 
@@ -64,7 +64,7 @@ const Home = () => {
         
         <div className="relative z-10 text-center text-white px-4 max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-            Monastery<span className="text-cadmium-orange">360</span>
+            Monastery<span className="text-muted-gold">360</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed drop-shadow">
             Discover the spiritual heritage of monasteries worldwide through immersive digital experiences
@@ -110,7 +110,7 @@ const Home = () => {
                   <p className="monastery-text-secondary leading-relaxed">
                     {feature.description}
                   </p>
-                  <div className="mt-4 flex items-center text-japanese-carmine font-medium group-hover:text-sinopia transition-colors">
+                  <div className="mt-4 flex items-center text-deep-charcoal font-medium group-hover:text-warm-terracotta transition-colors">
                     Learn More <ArrowRight size={16} className="ml-1" />
                   </div>
                 </Link>
@@ -121,7 +121,7 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-japanese-carmine via-sinopia to-cadmium-orange text-white py-16">
+      <section className="bg-gradient-to-r from-deep-charcoal via-cool-slate-blue to-warm-terracotta text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Begin Your Spiritual Journey Today
@@ -130,10 +130,10 @@ const Home = () => {
             Join thousands of seekers exploring the world's most sacred monasteries from the comfort of your home
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/events" className="bg-white text-japanese-carmine hover:bg-straw transition-colors font-semibold px-8 py-4 rounded-xl inline-flex items-center gap-2">
+            <Link to="/events" className="bg-white text-deep-charcoal hover:bg-light-granite transition-colors font-semibold px-8 py-4 rounded-xl inline-flex items-center gap-2">
               Book an Experience <Calendar size={20} />
             </Link>
-            <Link to="/chatbot" className="border-2 border-white text-white hover:bg-white hover:text-japanese-carmine transition-all font-semibold px-8 py-4 rounded-xl inline-flex items-center gap-2">
+            <Link to="/chatbot" className="border-2 border-white text-white hover:bg-white hover:text-deep-charcoal transition-all font-semibold px-8 py-4 rounded-xl inline-flex items-center gap-2">
               Ask a Monk <MessageCircle size={20} />
             </Link>
           </div>

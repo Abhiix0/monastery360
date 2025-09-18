@@ -20,7 +20,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-japanese-carmine text-white shadow-lg sticky top-0 z-50">
+    <header className="bg-deep-charcoal text-white shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -37,8 +37,8 @@ const Header = () => {
                 to={item.path}
                 className={`px-3 py-2 rounded-lg transition-all duration-200 ${
                   isActive(item.path)
-                    ? "bg-sinopia text-white"
-                    : "hover:bg-sinopia/20 hover:text-white"
+                    ? "bg-warm-terracotta text-white"
+                    : "hover:bg-warm-terracotta/20 hover:text-white"
                 }`}
               >
                 {item.name}
@@ -55,7 +55,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-sinopia/20 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-warm-terracotta/20 transition-colors"
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -72,8 +72,8 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`px-3 py-2 rounded-lg transition-all ${
                     isActive(item.path)
-                      ? "bg-sinopia text-white"
-                      : "hover:bg-sinopia/20 hover:text-white"
+                      ? "bg-warm-terracotta text-white"
+                      : "hover:bg-warm-terracotta/20 hover:text-white"
                   }`}
                 >
                   {item.name}

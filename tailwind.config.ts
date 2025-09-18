@@ -14,12 +14,16 @@ export default {
     },
     extend: {
       colors: {
-        /* Monastery360 Brand Colors */
-        "japanese-carmine": "hsl(var(--japanese-carmine))",
-        "sinopia": "hsl(var(--sinopia))",
-        "cadmium-orange": "hsl(var(--cadmium-orange))",
-        "straw": "hsl(var(--straw))",
-        "rose-taupe": "hsl(var(--rose-taupe))",
+        /* Monastery360 Natural Color Palette */
+        "soft-ivory": "hsl(var(--soft-ivory))",
+        "deep-charcoal": "hsl(var(--deep-charcoal))",
+        "slate-gray": "hsl(var(--slate-gray))",
+        "muted-gold": "hsl(var(--muted-gold))",
+        "earthy-green": "hsl(var(--earthy-green))",
+        "warm-terracotta": "hsl(var(--warm-terracotta))",
+        "light-granite": "hsl(var(--light-granite))",
+        "cool-slate-blue": "hsl(var(--cool-slate-blue))",
+        "deep-walnut": "hsl(var(--deep-walnut))",
         
         /* Semantic Colors */
         border: "hsl(var(--border))",
