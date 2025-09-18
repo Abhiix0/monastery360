@@ -8,7 +8,19 @@ All colors MUST be HSL for proper theming.
 
 @layer base {
   :root {
-    /* Core Monastery360 Natural Color Palette */
+    /* New Monastery360 Color Palette - Exact Values */
+    --bg: #F8F5F0;            /* Soft Ivory */
+    --text-primary: #2E2E2E;  /* Deep Charcoal */
+    --text-accent: #4A4A4A;   /* Slate Gray */
+    --highlight: #C2A76D;     /* Muted Gold / Ochre */
+    --accent-green: #6B7A5F;   /* Earthy Green */
+    --link-hover: #A65E3B;     /* Warm Terracotta */
+    --stone: #D6D3CE;         /* Light Granite Gray */
+    --mountain: #5C6B7C;      /* Cool Slate Blue */
+    --wood: #4B3621;          /* Deep Walnut Brown */
+    --hero-bg: #E4E1DC;       /* Soft Ivory darkened ~8% (hero background) */
+
+    /* Core Monastery360 Natural Color Palette in HSL for Tailwind compatibility */
     --soft-ivory: 45 30% 96%;              /* #F8F5F0 - Background */
     --deep-charcoal: 0 0% 18%;             /* #2E2E2E - Primary Text */
     --slate-gray: 0 0% 29%;                /* #4A4A4A - Accent Text */
@@ -51,13 +63,14 @@ All colors MUST be HSL for proper theming.
     --radius: 0.75rem;
 
     /* Custom Monastery360 Design Tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--deep-charcoal)), hsl(var(--slate-gray)));
-    --gradient-accent: linear-gradient(135deg, hsl(var(--muted-gold)), hsl(var(--earthy-green)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--deep-charcoal) / 0.9), hsl(var(--cool-slate-blue) / 0.8));
+    --gradient-primary: linear-gradient(135deg, var(--text-primary), var(--text-accent));
+    --gradient-accent: linear-gradient(135deg, var(--highlight), var(--accent-green));
+    --gradient-hero: linear-gradient(135deg, rgba(46, 46, 46, 0.12), rgba(92, 107, 124, 0.08));
+    --hero-overlay: rgba(46, 46, 46, 0.12);
     
-    --shadow-soft: 0 4px 20px hsl(var(--cool-slate-blue) / 0.1);
-    --shadow-card: 0 2px 15px hsl(var(--cool-slate-blue) / 0.15);
-    --shadow-hover: 0 8px 30px hsl(var(--warm-terracotta) / 0.2);
+    --shadow-soft: 0 4px 20px rgba(92, 107, 124, 0.1);
+    --shadow-card: 0 2px 15px rgba(92, 107, 124, 0.15);
+    --shadow-hover: 0 8px 30px rgba(166, 94, 59, 0.2);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -122,44 +135,76 @@ All colors MUST be HSL for proper theming.
 }
 
 @layer components {
-  /* Monastery360 Component Styles */
+  /* Monastery360 Component Styles - Updated for new color palette */
   .monastery-hero {
-    @apply bg-gradient-to-br from-[hsl(var(--deep-charcoal))] via-[hsl(var(--cool-slate-blue))] to-[hsl(var(--slate-gray))];
+    background: var(--hero-bg);
+    background-image: var(--gradient-hero);
   }
   
   .monastery-card {
-    @apply bg-card border border-[hsl(var(--light-granite))] rounded-xl shadow-[var(--shadow-card)] 
-           hover:shadow-[var(--shadow-hover)] transition-[var(--transition-smooth)]
-           hover:-translate-y-1 hover:scale-[1.02];
+    background: var(--bg);
+    border: 1px solid var(--stone);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-smooth);
+  }
+  
+  .monastery-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-0.25rem) scale(1.02);
   }
   
   .monastery-btn-primary {
-    @apply bg-[hsl(var(--muted-gold))] hover:bg-[hsl(var(--warm-terracotta))] 
-           text-[hsl(var(--deep-charcoal))] hover:text-[hsl(var(--soft-ivory))] font-semibold px-6 py-3 rounded-xl
-           transition-[var(--transition-smooth)] shadow-[var(--shadow-soft)]
-           hover:shadow-[var(--shadow-hover)] hover:-translate-y-0.5;
+    background: var(--highlight);
+    color: var(--text-primary);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-soft);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .monastery-btn-primary:hover {
+    background: var(--link-hover);
+    color: var(--bg);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-0.125rem);
   }
   
   .monastery-btn-accent {
-    @apply bg-[hsl(var(--warm-terracotta))] hover:bg-[hsl(var(--earthy-green))]
-           text-[hsl(var(--soft-ivory))] font-semibold px-6 py-3 rounded-xl
-           transition-[var(--transition-smooth)] shadow-[var(--shadow-soft)]
-           hover:shadow-[var(--shadow-hover)] hover:-translate-y-0.5;
+    background: var(--link-hover);
+    color: var(--bg);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.75rem;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-soft);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .monastery-btn-accent:hover {
+    background: var(--accent-green);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-0.125rem);
   }
   
   .monastery-section {
-    @apply bg-[hsl(var(--light-granite)/0.3)] py-16;
+    background-color: rgba(214, 211, 206, 0.3); /* --stone with 30% opacity */
+    padding: 4rem 0;
   }
   
   .monastery-text-primary {
-    @apply text-[hsl(var(--deep-charcoal))];
+    color: var(--text-primary);
   }
   
   .monastery-text-secondary {
-    @apply text-[hsl(var(--slate-gray))];
+    color: var(--text-accent);
   }
   
   .monastery-border {
-    @apply border-[hsl(var(--light-granite))];
+    border-color: var(--stone);
   }
 }

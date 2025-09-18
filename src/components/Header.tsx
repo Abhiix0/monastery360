@@ -20,11 +20,18 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-deep-charcoal text-white shadow-lg sticky top-0 z-50">
+    <header 
+      className="text-white shadow-lg sticky top-0 z-50" 
+      style={{ 
+        background: 'var(--text-primary)', 
+        borderBottom: '1px solid rgba(255,255,255,0.04)',
+        boxShadow: '0 2px 8px rgba(46,46,46,0.06)' 
+      }}
+    >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
+          <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity" style={{ color: 'var(--bg)' }}>
             <img src={monasteryLogo} alt="Monastery360 Logo" className="w-8 h-8" />
             <span className="text-xl font-bold">Monastery360</span>
           </Link>
@@ -37,9 +44,23 @@ const Header = () => {
                 to={item.path}
                 className={`px-3 py-2 rounded-lg transition-all duration-200 ${
                   isActive(item.path)
-                    ? "bg-warm-terracotta text-white"
-                    : "hover:bg-warm-terracotta/20 hover:text-white"
+                    ? "text-white"
+                    : "hover:text-white"
                 }`}
+                style={{ 
+                  backgroundColor: isActive(item.path) ? 'var(--link-hover)' : 'transparent',
+                  color: isActive(item.path) ? 'var(--bg)' : 'var(--bg)'
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive(item.path)) {
+                    e.currentTarget.style.color = 'var(--link-hover)';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive(item.path)) {
+                    e.currentTarget.style.color = 'var(--bg)';
+                  }
+                }}
               >
                 {item.name}
               </Link>
@@ -55,7 +76,14 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-warm-terracotta/20 transition-colors"
+            className="md:hidden p-2 rounded-lg transition-colors"
+            style={{ color: 'var(--bg)' }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(166, 94, 59, 0.2)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }}
           >
             {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
@@ -70,11 +98,21 @@ const Header = () => {
                   key={item.path}
                   to={item.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-3 py-2 rounded-lg transition-all ${
-                    isActive(item.path)
-                      ? "bg-warm-terracotta text-white"
-                      : "hover:bg-warm-terracotta/20 hover:text-white"
-                  }`}
+                  className="px-3 py-2 rounded-lg transition-all"
+                  style={{ 
+                    backgroundColor: isActive(item.path) ? 'var(--link-hover)' : 'transparent',
+                    color: 'var(--bg)'
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isActive(item.path)) {
+                      e.currentTarget.style.backgroundColor = 'rgba(166, 94, 59, 0.2)';
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isActive(item.path)) {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                    }
+                  }}
                 >
                   {item.name}
                 </Link>

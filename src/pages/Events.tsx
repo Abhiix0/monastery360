@@ -136,11 +136,11 @@ const Events = () => {
 
   const getCategoryColor = (category: string) => {
     switch (category) {
-      case "festival": return "bg-cadmium-orange text-white";
-      case "meditation": return "bg-japanese-carmine text-white";
-      case "workshop": return "bg-sinopia text-white";
-      case "ceremony": return "bg-straw text-rose-taupe";
-      default: return "bg-rose-taupe text-white";
+      case "festival": return { backgroundColor: 'var(--highlight)', color: 'var(--text-primary)' };
+      case "meditation": return { backgroundColor: 'var(--link-hover)', color: 'var(--bg)' };
+      case "workshop": return { backgroundColor: 'var(--accent-green)', color: 'var(--bg)' };
+      case "ceremony": return { backgroundColor: 'var(--stone)', color: 'var(--text-primary)' };
+      default: return { backgroundColor: 'var(--text-accent)', color: 'var(--bg)' };
     }
   };
 
@@ -149,13 +149,21 @@ const Events = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-japanese-carmine to-sinopia text-white py-16">
+      <section 
+        className="text-white py-16"
+        style={{ 
+          background: 'var(--gradient-primary)'
+        }}
+      >
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Sacred Events & Experiences
             </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl mb-8 max-w-2xl mx-auto" style={{ 
+              color: 'var(--bg)', 
+              opacity: 0.9 
+            }}>
               Participate in authentic monastery events, festivals, and spiritual practices from around the world
             </p>
           </div>
@@ -220,10 +228,16 @@ const Events = () => {
                         {Math.round((event.capacity - event.booked) / event.capacity * 100)}% available
                       </span>
                     </div>
-                    <div className="w-full bg-rose-taupe/20 rounded-full h-2">
+                    <div 
+                      className="w-full rounded-full h-2" 
+                      style={{ backgroundColor: 'rgba(74, 74, 74, 0.2)' }}
+                    >
                       <div 
-                        className="bg-cadmium-orange h-2 rounded-full transition-all"
-                        style={{ width: `${(event.booked / event.capacity) * 100}%` }}
+                        className="h-2 rounded-full transition-all"
+                        style={{ 
+                          backgroundColor: 'var(--highlight)',
+                          width: `${(event.booked / event.capacity) * 100}%` 
+                        }}
                       />
                     </div>
                   </div>
@@ -233,9 +247,14 @@ const Events = () => {
                     disabled={event.booked >= event.capacity}
                     className={`w-full font-semibold py-3 rounded-xl transition-all ${
                       event.booked >= event.capacity
-                        ? "bg-rose-taupe/20 text-rose-taupe cursor-not-allowed"
+                        ? "cursor-not-allowed"
                         : "monastery-btn-primary"
                     }`}
+                    style={event.booked >= event.capacity ? {
+                      backgroundColor: 'rgba(74, 74, 74, 0.2)',
+                      color: 'var(--text-accent)',
+                      cursor: 'not-allowed'
+                    } : {}}
                   >
                     {event.booked >= event.capacity ? "Fully Booked" : "Book Now"}
                   </button>
@@ -248,8 +267,8 @@ const Events = () => {
 
       {/* Booking Modal */}
       {showBookingModal && selectedEvent && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 flex items-center justify-center p-4 z-50" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
+          <div className="rounded-2xl max-w-md w-full max-h-[90vh] overflow-y-auto" style={{ backgroundColor: 'var(--bg)' }}>
             <div className="p-6">
               <div className="flex justify-between items-start mb-6">
                 <h3 className="text-xl font-bold monastery-text-primary">
@@ -257,7 +276,14 @@ const Events = () => {
                 </h3>
                 <button
                   onClick={closeModal}
-                  className="p-2 hover:bg-rose-taupe/10 rounded-lg transition-colors"
+                  className="p-2 rounded-lg transition-colors"
+                  style={{ color: 'var(--text-accent)' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(74, 74, 74, 0.1)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                  }}
                 >
                   <X size={20} />
                 </button>
@@ -265,7 +291,10 @@ const Events = () => {
 
               {bookingConfirmed ? (
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-cadmium-orange rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div 
+                    className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
+                    style={{ backgroundColor: 'var(--highlight)' }}
+                  >
                     <Calendar className="text-white" size={24} />
                   </div>
                   <h4 className="text-lg font-semibold monastery-text-primary mb-2">
@@ -274,7 +303,10 @@ const Events = () => {
                   <p className="monastery-text-secondary mb-4">
                     You'll receive a confirmation email with all the details shortly.
                   </p>
-                  <div className="bg-straw/20 p-4 rounded-xl">
+                  <div 
+                    className="p-4 rounded-xl"
+                    style={{ backgroundColor: 'rgba(214, 211, 206, 0.2)' }}
+                  >
                     <p className="text-sm monastery-text-secondary">
                       <strong>Event:</strong> {selectedEvent.title}<br/>
                       <strong>Date:</strong> {new Date(selectedEvent.date).toLocaleDateString()}<br/>
@@ -303,8 +335,21 @@ const Events = () => {
                         required
                         value={bookingForm.name}
                         onChange={(e) => setBookingForm({...bookingForm, name: e.target.value})}
-                        className="w-full px-3 py-2 border monastery-border rounded-lg focus:ring-2 focus:ring-japanese-carmine focus:border-transparent outline-none"
+                        className="w-full px-3 py-2 rounded-lg outline-none"
+                        style={{
+                          border: '1px solid var(--stone)',
+                          backgroundColor: 'var(--bg)',
+                          color: 'var(--text-primary)'
+                        }}
                         placeholder="Enter your full name"
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--highlight)';
+                          e.currentTarget.style.boxShadow = '0 0 0 2px rgba(194, 167, 109, 0.2)';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--stone)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
                       />
                     </div>
 
@@ -349,7 +394,10 @@ const Events = () => {
                       />
                     </div>
 
-                    <div className="bg-straw/20 p-4 rounded-xl">
+                    <div 
+                      className="p-4 rounded-xl"
+                      style={{ backgroundColor: 'rgba(214, 211, 206, 0.2)' }}
+                    >
                       <div className="flex justify-between items-center">
                         <span className="font-medium">Total:</span>
                         <span className="text-xl font-bold monastery-text-primary">

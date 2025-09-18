@@ -97,13 +97,21 @@ const Explore = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-japanese-carmine to-sinopia text-white py-16">
+      <section 
+        className="text-white py-16"
+        style={{ 
+          background: 'var(--gradient-primary)'
+        }}
+      >
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
               Explore Sacred Monasteries
             </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl mb-8 max-w-2xl mx-auto" style={{ 
+              color: 'var(--bg)', 
+              opacity: 0.9 
+            }}>
               Discover centuries-old monasteries from around the world, each with unique history and spiritual significance
             </p>
           </div>
@@ -117,23 +125,49 @@ const Explore = () => {
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Search Bar */}
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-rose-taupe" size={20} />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2" size={20} style={{ color: 'var(--text-accent)' }} />
                 <input
                   type="text"
                   placeholder="Search monasteries by name or location..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border monastery-border rounded-xl focus:ring-2 focus:ring-japanese-carmine focus:border-transparent outline-none"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl outline-none"
+                  style={{
+                    border: '1px solid var(--stone)',
+                    background: 'var(--bg)',
+                    color: 'var(--text-primary)'
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--highlight)';
+                    e.currentTarget.style.boxShadow = '0 0 0 2px rgba(194, 167, 109, 0.2)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--stone)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
                 />
               </div>
 
               {/* Region Filter */}
               <div className="flex items-center gap-3">
-                <Filter className="text-rose-taupe" size={20} />
+                <Filter size={20} style={{ color: 'var(--text-accent)' }} />
                 <select
                   value={selectedRegion}
                   onChange={(e) => setSelectedRegion(e.target.value)}
-                  className="px-4 py-3 border monastery-border rounded-xl focus:ring-2 focus:ring-japanese-carmine focus:border-transparent outline-none bg-background"
+                  className="px-4 py-3 rounded-xl outline-none"
+                  style={{
+                    border: '1px solid var(--stone)',
+                    background: 'var(--bg)',
+                    color: 'var(--text-primary)'
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--highlight)';
+                    e.currentTarget.style.boxShadow = '0 0 0 2px rgba(194, 167, 109, 0.2)';
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = 'var(--stone)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }}
                 >
                   {regions.map(region => (
                     <option key={region.value} value={region.value}>
@@ -170,18 +204,20 @@ const Explore = () => {
                 
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
-                    <h3 className="text-xl font-semibold monastery-text-primary group-hover:text-sinopia transition-colors">
+                    <h3 className="text-xl font-semibold monastery-text-primary group-hover:monastery-text-secondary transition-colors"
+                        style={{ color: 'var(--text-primary)' }}
+                    >
                       {monastery.name}
                     </h3>
                     <div className="flex items-center gap-1">
-                      <Star className="text-cadmium-orange fill-current" size={16} />
+                      <Star size={16} style={{ color: 'var(--highlight)', fill: 'var(--highlight)' }} />
                       <span className="text-sm font-medium monastery-text-secondary">
                         {monastery.rating}
                       </span>
                     </div>
                   </div>
 
-                  <div className="flex items-center text-rose-taupe mb-3">
+                  <div className="flex items-center mb-3" style={{ color: 'var(--text-accent)' }}>
                     <MapPin size={16} className="mr-2" />
                     <span className="text-sm">{monastery.location}</span>
                   </div>
@@ -190,7 +226,7 @@ const Explore = () => {
                     {monastery.description}
                   </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t monastery-border">
+                  <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: 'var(--stone)' }}>
                     <div className="flex items-center gap-1 text-sm monastery-text-secondary">
                       <Users size={14} />
                       <span>{monastery.visitors} visitors</span>

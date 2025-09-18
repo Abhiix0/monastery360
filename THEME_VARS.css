@@ -1,0 +1,44 @@
+/* Monastery360 Theme Variables - New Natural Color Palette */
+
+:root {
+  /* Primary Color Palette - Exact Values as Requested */
+  --bg: #F8F5F0;            /* Soft Ivory - Background */
+  --text-primary: #2E2E2E;  /* Deep Charcoal - Primary Text */
+  --text-accent: #4A4A4A;   /* Slate Gray - Accent Text */
+  --highlight: #C2A76D;     /* Muted Gold / Ochre - Highlight Elements */
+  --accent-green: #6B7A5F;   /* Earthy Green - Natural Accent */
+  --link-hover: #A65E3B;     /* Warm Terracotta - Links/Hover/Details */
+  --stone: #D6D3CE;         /* Light Granite Gray - Stone Texture Elements */
+  --mountain: #5C6B7C;      /* Cool Slate Blue - Shadows/Depth Accents */
+  --wood: #4B3621;          /* Deep Walnut Brown - Wooden Details */
+  --hero-bg: #E4E1DC;       /* Soft Ivory darkened ~8% (hero background) */
+
+  /* Derived Variables */
+  --hero-overlay: rgba(46, 46, 46, 0.12);  /* Hero overlay for readability */
+  
+  /* Design System Tokens */
+  --gradient-primary: linear-gradient(135deg, var(--text-primary), var(--text-accent));
+  --gradient-accent: linear-gradient(135deg, var(--highlight), var(--accent-green));
+  --gradient-hero: linear-gradient(135deg, rgba(46, 46, 46, 0.12), rgba(92, 107, 124, 0.08));
+  
+  /* Shadows using mountain (Cool Slate Blue) with transparency */
+  --shadow-soft: 0 4px 20px rgba(92, 107, 124, 0.1);
+  --shadow-card: 0 2px 15px rgba(92, 107, 124, 0.15);
+  --shadow-hover: 0 8px 30px rgba(166, 94, 59, 0.2);
+  
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Usage Guidelines:
+ * - Primary CTAs: background: var(--highlight), color: var(--text-primary)
+ * - CTA Hover: background: var(--link-hover), color: var(--bg)
+ * - Header: background: var(--text-primary), color: var(--bg)
+ * - Footer: background: var(--wood), color: var(--bg)
+ * - Hero: background-color: var(--hero-bg) with overlay var(--hero-overlay)
+ * - Cards: background: var(--bg), border: var(--stone)
+ * - Text: Primary uses var(--text-primary), Secondary uses var(--text-accent)
+ * - Links: normal var(--text-accent), hover var(--link-hover)
+ * - Accents: var(--accent-green) for success states, secondary elements
+ */
