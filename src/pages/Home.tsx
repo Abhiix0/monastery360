@@ -38,7 +38,7 @@ const Home = () => {
       icon: MessageCircle,
       title: "Monk Chatbot",
       description: "Get guidance on meditation, philosophy, and spiritual practices from our AI monk assistant.",
-      link: "/chatbot",
+      link: "/",
       color: "var(--mountain)"
     },
     {
@@ -65,25 +65,6 @@ const Home = () => {
           opacity: 0.8 
         }} />
         
-        <div className="relative z-10 text-center px-4 max-w-4xl" style={{ color: 'var(--text-primary)' }}>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 drop-shadow-lg">
-            Monastery<span style={{ color: 'var(--highlight)' }}>360</span>
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 leading-relaxed drop-shadow" style={{ 
-            color: 'var(--text-accent)', 
-            opacity: 0.95 
-          }}>
-            Discover the spiritual heritage of monasteries worldwide through immersive digital experiences
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/explore" className="monastery-btn-primary inline-flex items-center gap-2 text-lg">
-              Start Exploring <ArrowRight size={20} />
-            </Link>
-            <Link to="/tours" className="monastery-btn-accent inline-flex items-center gap-2 text-lg">
-              Virtual Tours <Camera size={20} />
-            </Link>
-          </div>
-        </div>
       </section>
 
       {/* Features Section */}
@@ -170,7 +151,7 @@ const Home = () => {
               Book an Experience <Calendar size={20} />
             </Link>
             <Link 
-              to="/chatbot" 
+              to="/" 
               className="font-semibold px-8 py-4 rounded-xl inline-flex items-center gap-2 transition-all"
               style={{
                 border: '2px solid var(--bg)',

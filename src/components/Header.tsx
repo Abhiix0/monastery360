@@ -13,7 +13,6 @@ const Header = () => {
     { name: "Events", path: "/events" },
     { name: "Archives", path: "/archives" },
     { name: "Virtual Tours", path: "/tours" },
-    { name: "Monk Chat", path: "/chatbot" },
     { name: "About", path: "/about" },
   ];
 

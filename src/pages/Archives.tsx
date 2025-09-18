@@ -151,13 +151,13 @@ const Archives = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-japanese-carmine to-sinopia text-white py-16">
+      <section className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-20 px-6 text-center">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               Digital Archives & Treasures
             </h1>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            <p className="text-xl text-white mb-8 max-w-2xl mx-auto">
               Explore rare manuscripts, sacred artwork, and ancient artifacts preserved from monasteries worldwide
             </p>
           </div>

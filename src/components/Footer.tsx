@@ -134,7 +134,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link 
-                  to="/chatbot" 
+                  to="/" 
                   className="transition-colors"
                   style={{ color: 'var(--bg)', opacity: 0.9 }}
                   onMouseEnter={(e) => {
