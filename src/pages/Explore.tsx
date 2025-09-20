@@ -3,77 +3,51 @@ import { Link } from "react-router-dom";
 import { Search, Filter, MapPin, Users, Star } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import rumtekImg from "../assets/rumtek1.jpg";
+import pemyangtseImg from "../assets/pemyangtse1.png";
+import tashidingImg from "../assets/tashiding1.jpg";
 
 const Explore = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedRegion, setSelectedRegion] = useState("all");
+  const [selectedMonastery, setSelectedMonastery] = useState(null);
 
   const monasteries = [
     {
       id: 1,
-      name: "Tiger's Nest Monastery",
-      location: "Bhutan, Himalayas",
+      name: "Rumtek Monastery (Dharma Chakra Centre)",
+      location: "24 km from Gangtok, Sikkim, India (altitude: 1,500m)",
       region: "asia",
-      image: "https://images.unsplash.com/photo-1544531586-fbb6cf2d4e29?w=400&h=300&fit=crop",
-      description: "A sacred Buddhist site built on a cliff face 3,000 feet above the Paro valley floor.",
-      visitors: "25K+",
+  image: rumtekImg,
+      description: "Largest monastery in Sikkim, seat of the Karmapa Lama, replica of the original Kagyu sect HQ in Tibet. Houses sacred relics, golden stupa, and Karma Shri Nalanda Institute. Features seven auspicious attributes and a magnificent four-story temple.",
+      visitors: "Varies",
       rating: 4.9,
-      established: "1692"
+      established: "1734 / 1966",
+      fullInfo: `Name: Rumtek Monastery / Dharma Chakra Centre\nLocation: 24 kilometers from Gangtok, Sikkim, at an altitude of 1,500 meters (4,900 ft)\nFounded: Originally built in 1734 by the 9th Karmapa Wangchuk Dorje, rebuilt and inaugurated in 1966 by the 16th Karmapa\nSect: Karma Kagyu (Tibetan Buddhism)\nHighlights:\n• Largest monastery in Sikkim and seat of the Karmapa Lama\n• Replica of the original Kagyu sect headquarters in Tibet\n• Houses sacred relics and artifacts brought from Tibet\n• Features a golden stupa containing relics of the 16th Karmapa\n• Home to Karma Shri Nalanda Institute for Higher Buddhist Studies\n• Built with seven auspicious attributes: seven streams flowing towards it, seven hills facing it, mountain behind, snow ranges in front, and river below\n• Magnificent four-story main temple topped by golden sculpture\n• Ten-feet-high statue of Sakyamuni Buddha in shrine hall\nFestivals:\n• Losar (Tibetan New Year) - February/March with Cham masked dances\n• Gutor - End of Tibetan year with ritual dances in main courtyard\n• Kagyu Monlam Chenmo - Great prayer festival for world peace\n• Mahakala Puja - Performed before New Year to dispel negativity\nNearby Attractions:\n• Gangtok (24 km)\n• Enchey Monastery\n• Hanuman Tok`
     },
     {
       id: 2,
-      name: "Mont-Saint-Michel",
-      location: "Normandy, France",
-      region: "europe",
-      image: "https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=400&h=300&fit=crop",
-      description: "Medieval abbey perched on a rocky tidal island, a masterpiece of Gothic architecture.",
-      visitors: "45K+",
+      name: "Pemyangtse Monastery",
+      location: "Near Pelling, West Sikkim, India (2,085m elevation)",
+      region: "asia",
+  image: pemyangtseImg,
+      description: "Second oldest and premier Nyingma monastery in Sikkim. Three-storied Tibetan architecture, Zangdok Palri, panoramic Kanchenjunga views, ancient murals, and gold-plated Guru Padmasambhava statue.",
+      visitors: "Varies",
       rating: 4.8,
-      established: "966"
+      established: "1705",
+      fullInfo: `Name: Pemyangtse Monastery (\"Perfect Sublime Lotus\")\nLocation: Near Pelling, West Sikkim, 110 km from Gangtok, at 2,085m elevation\nFounded: 1705 by Lama Lhatsun Chempo (originally started as small Lhakhang in 1647)\nSect: Nyingma Order of Tibetan Buddhism\nHighlights:\n• Second oldest monastery in Sikkim and premier Nyingma monastery\n• Three-storied traditional Tibetan architecture\n• Built exclusively for \"ta-tshang\" (pure monks of Tibetan lineage)\n• Seven-tiered wooden structure \"Zangdok Palri\" depicting Guru Rinpoche's heavenly palace\n• Panoramic views of Kanchenjunga range\n• Ancient murals, sculptures, and gold-plated statue of Guru Padmasambhava\n• Overlooks ruins of Rabdentse (former capital of Sikkim)\n• Controls all other Nyingma monasteries in Sikkim\nFestivals:\n• Cham Dance Festival (Drupka Teshi) - 28th and 29th day of 12th lunar month (February)\n• Pang Lhabsol - Traditional ritual dance performed by Pemyangtse lamas\n• Annual monastic dances performed in palace chapel in Gangtok\nNearby Attractions:\n• Pelling Skywalk (2 km)\n• Rabdentse Ruins\n• Khecheopalri Lake\n• Sanga Choeling Monastery`
     },
     {
       id: 3,
-      name: "Meteora Monasteries",
-      location: "Thessaly, Greece",
-      region: "europe",
-      image: "https://images.unsplash.com/photo-1555993539-1732b0258c5f?w=400&h=300&fit=crop",
-      description: "Six Eastern Orthodox monasteries built on towering rock pillars reaching toward heaven.",
-      visitors: "38K+",
+      name: "Tashiding Monastery",
+      location: "West Sikkim, 27 km from Gyalshing, India",
+      region: "asia",
+  image: tashidingImg,
+      description: "Most sacred and holiest monastery in Sikkim, called 'Heart of Sikkim'. Home to Thong-Wa-Rang-Dol chorten, 41 chortens, and spectacular Kanchenjunga backdrop.",
+      visitors: "Varies",
       rating: 4.7,
-      established: "14th Century"
-    },
-    {
-      id: 4,
-      name: "Shaolin Temple",
-      location: "Henan, China",
-      region: "asia",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop",
-      description: "The birthplace of Zen Buddhism and legendary home of Kung Fu martial arts.",
-      visitors: "52K+",
-      rating: 4.8,
-      established: "495 AD"
-    },
-    {
-      id: 5,
-      name: "Ganden Monastery",
-      location: "Tibet, China",
-      region: "asia",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
-      description: "One of the 'great three' Gelug university monasteries, founded by Je Tsongkhapa.",
-      visitors: "15K+",
-      rating: 4.9,
-      established: "1409"
-    },
-    {
-      id: 6,
-      name: "Rila Monastery",
-      location: "Sofia, Bulgaria",
-      region: "europe",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
-      description: "Bulgaria's largest monastery, renowned for its Renaissance architecture and frescoes.",
-      visitors: "22K+",
-      rating: 4.6,
-      established: "927"
+      established: "1641",
+      fullInfo: `Name: Tashiding Monastery (\"The Devoted Central Glory\")\nLocation: West Sikkim, 27 km from Gyalshing, on hilltop between Rathong and Rangeet rivers\nFounded: 1641 by Ngadak Sempa Chempo Phunshok Rigzing\nSect: Nyingma sect of Tibetan Buddhism\nHighlights:\n• Most sacred and holiest monastery in Sikkim, called \"Heart of Sikkim\"\n• Houses sacred Thong-Wa-Rang-Dol chorten believed to purify sins by sight\n• 41 chortens of different categories including \"Chortens of Enlightenment\"\n• Legend says Guru Padmasambhava shot arrow here to select meditation site\n• Spectacular backdrop of Mount Kanchenjunga\n• Prayer wheels line the path from market to monastery\n• Part of Buddhist pilgrimage circuit starting from Yuksom\nFestivals:\n• Bumchu Festival - 14th-15th of first lunar month (February/March)\n• Sacred holy water ceremony where water level predicts future\n• Attracts devotees from India, Bhutan, Nepal, and Sri Lanka\n• Water distributed at midnight ceremony believed to have healing properties\nNearby Attractions:\n• Yuksom (25 km)\n• Pelling (36 km)\n• Dubdi Monastery\n• Khecheopalri Lake\n• Norbugang Chorten`
     }
   ];
 
@@ -189,10 +163,10 @@ const Explore = () => {
           {/* Monastery Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredMonasteries.map(monastery => (
-              <Link 
+              <div
                 key={monastery.id}
-                to={`/monastery/${monastery.id}`}
-                className="monastery-card group overflow-hidden"
+                className="monastery-card group overflow-hidden cursor-pointer"
+                onClick={() => setSelectedMonastery(monastery)}
               >
                 <div className="aspect-video overflow-hidden rounded-t-xl">
                   <img 
@@ -201,7 +175,6 @@ const Explore = () => {
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                 </div>
-                
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
                     <h3 className="text-xl font-semibold monastery-text-primary group-hover:monastery-text-secondary transition-colors"
@@ -216,16 +189,13 @@ const Explore = () => {
                       </span>
                     </div>
                   </div>
-
                   <div className="flex items-center mb-3" style={{ color: 'var(--text-accent)' }}>
                     <MapPin size={16} className="mr-2" />
                     <span className="text-sm">{monastery.location}</span>
                   </div>
-
                   <p className="monastery-text-secondary text-sm mb-4 leading-relaxed">
                     {monastery.description}
                   </p>
-
                   <div className="flex items-center justify-between pt-4 border-t" style={{ borderColor: 'var(--stone)' }}>
                     <div className="flex items-center gap-1 text-sm monastery-text-secondary">
                       <Users size={14} />
@@ -236,8 +206,25 @@ const Explore = () => {
                     </div>
                   </div>
                 </div>
-              </Link>
+              </div>
             ))}
+      {/* Modal for full info */}
+      {selectedMonastery && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
+          <div className="bg-white rounded-xl max-w-lg w-full p-8 relative shadow-lg overflow-y-auto max-h-[90vh]">
+            <button
+              className="absolute top-3 right-3 text-2xl text-gray-500 hover:text-black"
+              onClick={() => setSelectedMonastery(null)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>{selectedMonastery.name}</h2>
+            <img src={selectedMonastery.image} alt={selectedMonastery.name} className="w-full rounded mb-4" />
+            <pre className="whitespace-pre-wrap text-sm" style={{ color: 'var(--text-secondary)' }}>{selectedMonastery.fullInfo}</pre>
+          </div>
+        </div>
+      )}
           </div>
 
           {/* No Results */}

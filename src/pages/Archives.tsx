@@ -1,3 +1,6 @@
+import rumtekImg from "../assets/rumtek1.jpg";
+import pemyangtseImg from "../assets/pemyangtse1.png";
+import tashidingImg from "../assets/tashiding1.jpg";
 import { useState } from "react";
 import { Search, Filter, FileText, Image, Scroll, Download, Eye, Heart } from "lucide-react";
 import Header from "@/components/Header";
@@ -21,84 +24,53 @@ const Archives = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedType, setSelectedType] = useState("all");
   const [likedItems, setLikedItems] = useState<Set<number>>(new Set());
+  const [selectedArchive, setSelectedArchive] = useState<Archive | null>(null);
+
+  // Full info for each monastery
+  const fullArchiveInfo: Record<number, string> = {
+    1: `RUMTEK :\n108-volume Kangyur\nHigh in the Himalayas, nestled between Tibet, Bhutan, and Nepal and is the north eastern Indian state of Sikkim.\nSikkim was a small independent Buddhist kingdom until the 1970s, after which it became a state of India. Buddhism still plays an important role in the life of the state (the state motto is Conqueror of the Three Worlds, the name of a protective Buddha aspect). The largest Buddhist monastery in Sikkim is Rumtek monastery, which is the main seat-in-exile of Thaye Dorje, His Holiness the 17th Gyalwa Karmapa.\nWangchuk Dorje, the 9th Karmapa, founded the original Rumtek monastery in 1734 with the patronage of the king, the fourth Chogyal Gyurmed Namgyal. It was then, and is today, the seat of the Kagyu tradition in Sikkim.\n\nView of the capital of Sikkim, Gangtok, from Rumtek Monastery.\nBy 1956, the monastery was almost in ruins. When Rangjung Rigpe Dorje, His Holiness the 16th Gyalwa Karmapa, visited Sikkim on pilgrimage, lamas from Rumtek asked him to visit the monastery. Karmapa replied that he would come later, but the time was not yet right. Three years later, the 16th Karmapa, along with Mipham Chokyi Lodro, His Holiness the 14th Kunzig Shamar Rinpoche, had to escape from China and leave Tibet. They were welcomed in Bhutan, before being invited to Sikkim.\nThe 16th Karmapa was offered several sites in the kingdom to establish a new seat in exile, by the Maharaja, Sir Tashi Namgyal. He chose Rumtek because it possessed all of the auspicious attributes needed for the seat of activity of a Karmapa: seven streams flowing towards it, seven hills facing it, a mountain behind, snow ranges in front, and a river below, spiralling downhill like the form of a conch-shell.\n\nThe view from Rumtek monastery\nCarving a monastery complex from the raw jungle was a difficult task, only possible through immense assistance and dedication. The Maharaja of Sikkim gifted seventy-four acres of land at the Rumtek site to the 16th Karmapa. The Prime Minister of India, Pandit Jawaharlal Nehru, promised free food and clothing for the people working there. The government of Sikkim donated funds for the provision of a road, electricity, water, and other necessities. The government of India gave grants for a meditation hall, living quarters, and medical aid. The general public also gave generously, even though no appeal had been made.\nAfter four years of construction work, Rumtek monastery, designed in the traditional Tibetan style, was completed. Precious relics, texts and statues that the 16th Karmapa’s party had managed to save from Tibet, including the entire 108-volume canon of the Buddha’s teachings, were installed, and the 16th Karmapa himself took up residence in 1966.\n\nHis Holiness the 16th Gyalwa Karmapa (right) with His Holiness the 14th Shamar Rinpoche (left), performing a ceremony at Rumtek monastery\nThe 16th Karmapa was fond of birds, and the complex at Rumtek included an aviary, as well as a temple, school, several stupas, a retreat for monks to meditate, and other buildings. After the 16th Karmapa passed away in 1981, his relics were interred in a golden stupa at the site.\n\nReliquary stupa of the 16th Karmapa in Rumtek monastery\nThe original monastery, a short distance away from the new one, has recently been rebuilt with assistance from the Sikkimese government.`,
+    2: `PEMYANGTSE:\nDorje Shugden in Nyingma Pemayangtse Monastery, Sikkim\nPemayangtse Monastery in Sikkim, founded by Lhatsun Namkha Jigme of the Nyingma tradition.\nOne of the earliest modern academic references to Dorje Shugden, which includes a description of his form, can be found in Professor and Lieutenant Colonel Laurence Austine Waddell’s description of Pemayangtse Monastery in Sikkim.\nWaddell was a British explorer; a Professor of Tibetan, Chemistry and Pathology; and an Indian Army surgeon. He travelled extensively in India throughout the 1890s (including Sikkim and areas on the borders of Nepal and Tibet) and wrote about the Tibetan Buddhist religious practices he observed.\nPemayangtse Monastery that Wadell wrote about is also known as Pemiongchi and his description of the sacred Nyingma monastery appears in “Lamaism in Sikhim”, first published by W.H. Allen and Co. in 1895 under the title “The Buddhism of Tibet or Lamaism”.\nPemayangtse is one of the six major monasteries of the Nyingma tradition in Sikkim. Established by the master Lhatsun Namkha Jigme (1597-1653) in 1647, it originally began as a small shrine called the Tsangkhang on the very site that the present monastery is located on. It is the main seat of Lhatsun Namkha Jigme’s lineage in the world.\nIt is said that Pemayangtse was designed, if not actually built, by Lhatsun Namkha Jigme as a “high-class” monastery for “ta-sang” or “pure monks” of the pure Tibetan race; celibate and not deformed. The monastery has reportedly retained this reputation. It also was regarded as a royal monastery and was intended to play a unique role in the kingdom of Sikkim: lamas of Pemayangtse would become the king’s spiritual teachers. The Pemayangtse lamas were also the only ones with the power and authority to bestow initiations on the royal family.\nWaddell notes that Pemayangtse’s parent monastery was the famed Mindrolling Monastery in Tibet. At the time, it was also one of only two monasteries in Sikkim that had the complete collection of both the Kangyur (the spoken teachings of the historical Buddha) and the Tangyur (Buddhist commentaries by various Indian and Tibetan masters since the time of the historical Buddha).\nThe monastery, located at an elevation of 2,085 metres, is built amidst the scenic backdrop of snow-capped mountains and hills on every side. It is a three-storied building with murals on its walls and statues of Buddhist saints deified on its various floors.\nOn the third floor, there is a seven-tiered and painted wooden structure portraying Guru Rinpoche’s “Heavenly Palace” known as “Pedma Drawai Shing Kod”, which was originally built by Lhatsun Namkha Jigme himself.\nThe great majority of the monasteries in Sikkim belong to the Nyingma subsect originating from Pemayangtse, known as Lhatsunpa. Only Namchi, Tashidling, Sinon and Thangmochhe Monasteries belong to the Ngadakpa subsect, whereas Kartok and Do-Ling Monasteries belong to the Kartokpa subsect of the Nyingma tradition. These other monasteries are practically subordinate to Pemayangtse, although Namchi and Kartok Monasteries are nominal heads of the Ngadakpa and Kartokpa lineages respectively.\nPemayangtse also exercises supervision over Ling-Them, Zimik, and Phaggye Monasteries which belong to the Rongpa people, also sometimes known as the Lepcha people, who can also enrol in Rigon and Sangngachholing Monasteries. Nuns are admitted to a few monasteries, but their numbers are extremely small, and they are usually illiterate and old.`,
+    3: `TASHIDING :\nTashiding Monastery- the holiest monastery of Sikkim\nTashiding Monastery is believed to be the holiest monastery in Sikkim. The legend is that just the glimpse of Thongwa Rangdol Shrine (chorten) , washes away your sins. Seeing is cleansing here; no need to take a holy dip into a holy river. The walk up to the monastery is dotted with white coloured prayer flags . The carvings on the walls which lead to the complex are the Buddhist Chant-“Om Mane Padme Hum”. All this makes it a surrounding full of prayer and positivity, which will anyways change a person.\nPrayer flags and Inscriptions outside Tashiding Monastery\nTashiding-the devoted central glory\nTashiding means “The Devoted Central Glory”. This monastery was founded in 1641 by Ngadak Sempa Chempo Phunshok Rigzing.  He belonged to the Nyingma sect of Tibetan Buddhism. Though the other belief is, when Guru Padmasambhava was looking out for a quiet place, he shot an arrow into the sky which landed on the site of the Tashiding Gompa. It is situated at a height of 5000 feet .  So other than peace and tranquillity you can soak in the beauty of the valley between the two rivers and surrounded  by the Kanchenjunga range\nThe magic vase & Bumchu festival\nThe monastery has a sealed pot (magic vase) of holy water, which is taken out once in a year during the Bumchu ( Bum means pot and Chu means water) festival.  This festival is celebrated on the 14th and 15th day of the first month of the Tibetan calendar.  Buddhists from all over the globe come to attend this festival in which the sealed pot is opened by the monks and the water level is checked. Buddhists believe that the water level helps in predicting how prosperous will be the upcoming year. A full pot implies a prosperous year ahead. Low water level is a sign of famine. Dusty water indicates a year full of conflict and clash.\nTemple complex and Inscriptions outside the monastery\nstone slabs and chortens outside Tasiding Monastery\nThere are 41 Chortens (shrines) outside the temple complex. These chortens are segregated as chortens of enlightenment, chortens of reconciliation and chortens of great miracle. Though the main temple has been renovated and rebuilt, it is surrounded by these original chortens. The chortens hold the relics of Sikkim Chogyals and Lamas, including the ‘Thong-Wa-rang-Dol’ chorten which is believed wash away the sins of anybody who looks at it.\nDoesn’t all this sound magical?  Even if you don’t believe in magic, this beautiful mountain trip and a few days with the lovely locals and monks will make the whole experience out of the world. A trip to Tashiding monastery should be clubbed with Gangtok and you must have a 4 to 5 days plan cover these, given the travel time.`
+  };
 
   const archives: Archive[] = [
     {
       id: 1,
-      title: "Lotus Sutra Manuscript",
+      title: "108-volume Kangyur",
       type: "manuscript",
-      monastery: "Todai-ji Temple",
-      location: "Nara, Japan",
-      century: "8th Century",
-      description: "Ancient Buddhist text written in gold ink on indigo paper, containing profound teachings on the nature of Buddha.",
-      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
-      views: 2847,
-      likes: 156,
-      downloadable: true
+      monastery: "Rumtek Monastery",
+      location: "Sikkim, India",
+      century: "18th-20th Century",
+      description: `108-volume Kangyur. Largest Buddhist monastery in Sikkim, seat-in-exile of the Karmapa. Founded in 1734, rebuilt after 1956, houses precious relics, texts, and a golden stupa.`,
+  image: rumtekImg,
+      views: 3200,
+      likes: 210,
+      downloadable: false
     },
     {
       id: 2,
-      title: "Mandala of Compassion",
+      title: "Dorje Shugden in Nyingma Pemayangtse Monastery",
       type: "artwork",
-      monastery: "Hemis Monastery",
-      location: "Ladakh, India", 
-      century: "15th Century",
-      description: "Intricate sand mandala representing the Buddhist concept of impermanence and the path to enlightenment.",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop",
-      views: 1923,
-      likes: 89,
+      monastery: "Pemayangtse Monastery",
+      location: "Pelling, Sikkim, India",
+      century: "17th Century",
+      description: `Founded by Lhatsun Namkha Jigme in 1647. Main seat of his lineage, designed for “pure monks.” Renowned for murals, statues, and Guru Rinpoche’s Heavenly Palace. Houses Kangyur and Tangyur collections.`,
+  image: pemyangtseImg,
+      views: 2500,
+      likes: 180,
       downloadable: false
     },
     {
       id: 3,
-      title: "Tibetan Singing Bowl",
+      title: "Tashiding Monastery - The Holiest Monastery of Sikkim",
       type: "artifact",
-      monastery: "Rongbuk Monastery",
-      location: "Tibet, China",
-      century: "12th Century",
-      description: "Sacred bronze bowl used for meditation and healing ceremonies, inscribed with Om Mani Padme Hum mantra.",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
-      views: 1567,
-      likes: 92,
-      downloadable: false
-    },
-    {
-      id: 4,
-      title: "Book of Hours",
-      type: "manuscript",
-      monastery: "Mont-Saint-Michel Abbey",
-      location: "Normandy, France",
-      century: "14th Century",
-      description: "Illuminated prayer book featuring exquisite miniatures depicting the life of Christ and various saints.",
-      image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=300&fit=crop",
-      views: 3421,
-      likes: 203,
-      downloadable: true
-    },
-    {
-      id: 5,
-      title: "Byzantine Fresco Fragment",
-      type: "artwork",
-      monastery: "Hosios Loukas",
-      location: "Boeotia, Greece",
-      century: "11th Century",
-      description: "Preserved wall painting showing the Pantocrator, demonstrating the pinnacle of Byzantine artistic achievement.",
-      image: "https://images.unsplash.com/photo-1555993539-1732b0258c5f?w=400&h=300&fit=crop",
-      views: 2156,
-      likes: 134,
-      downloadable: false
-    },
-    {
-      id: 6,
-      title: "Jade Buddha Statue",
-      type: "artifact",
-      monastery: "Jade Buddha Temple",
-      location: "Shanghai, China",
-      century: "19th Century",
-      description: "Exquisite jade carving of Buddha in meditation posture, brought from Burma and enshrined in pure gold.",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=400&h=300&fit=crop",
-      views: 4231,
-      likes: 287,
+      monastery: "Tashiding Monastery",
+      location: "West Sikkim, India",
+      century: "17th Century",
+  description: `Holiest monastery in Sikkim, founded in 1641. Known for Thongwa Rangdol Shrine (washes away sins by sight), 41 chortens, and the Bumchu festival with its sacred water vase.`,
+  image: tashidingImg,
+      views: 2100,
+      likes: 150,
       downloadable: false
     }
   ];
@@ -273,9 +245,28 @@ const Archives = () => {
                         <span>{archive.likes + (likedItems.has(archive.id) ? 1 : 0)}</span>
                       </div>
                     </div>
-                    <button className="monastery-btn-accent py-2 px-4 text-xs">
+                    <button className="monastery-btn-accent py-2 px-4 text-xs" onClick={() => setSelectedArchive(archive)}>
                       View Details
                     </button>
+      {/* Modal for full archive info */}
+      {selectedArchive && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60">
+          <div className="bg-white rounded-xl max-w-lg w-full p-8 relative shadow-lg" style={{ maxHeight: '90vh', display: 'flex', flexDirection: 'column' }}>
+            <button
+              className="absolute top-3 right-3 text-2xl text-gray-500 hover:text-black"
+              onClick={() => setSelectedArchive(null)}
+              aria-label="Close"
+            >
+              &times;
+            </button>
+            <h2 className="text-2xl font-bold mb-4 text-center" style={{ color: 'var(--text-primary)' }}>{selectedArchive.title}</h2>
+            <img src={selectedArchive.image} alt={selectedArchive.title} className="w-full rounded mb-4" />
+            <div style={{ overflowY: 'auto', flex: 1, minHeight: 0 }}>
+              <pre className="whitespace-pre-wrap text-sm" style={{ color: 'var(--text-secondary)' }}>{fullArchiveInfo[selectedArchive.id]}</pre>
+            </div>
+          </div>
+        </div>
+      )}
                   </div>
                 </div>
               </div>
