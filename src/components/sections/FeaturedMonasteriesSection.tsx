@@ -1,12 +1,12 @@
 import { MapPin } from "lucide-react";
-import rumtek from "@/assets/images/home/rumtek.jpg";
+import monkImg from "@/assets/monk.jpg";
 import pemayangtse from "@/assets/images/home/pemayangtse.jpg";
 import tashiding from "@/assets/images/home/tashiding.jpg";
 import enchey from "@/assets/images/home/enchey.jpg";
 
 const FeaturedMonasteriesSection = () => {
   const monasteries = [
-    { name: "Rumtek Monastery", location: "East Sikkim", image: rumtek, alt: "Rumtek Monastery exterior, East Sikkim" },
+    { name: "Rumtek Monastery", location: "East Sikkim", image: monkImg, alt: "Monk at Rumtek Monastery, East Sikkim" },
     { name: "Pemayangtse Monastery", location: "West Sikkim", image: pemayangtse, alt: "Pemayangtse Monastery with prayer flags, West Sikkim" },
     { name: "Tashiding Monastery", location: "West Sikkim", image: tashiding, alt: "Tashiding Monastery with colorful prayer flags, West Sikkim" },
     { name: "Enchey Monastery", location: "Gangtok", image: enchey, alt: "Enchey Monastery in Gangtok, Sikkim" },

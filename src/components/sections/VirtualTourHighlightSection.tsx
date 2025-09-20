@@ -1,15 +1,12 @@
 import { Camera } from "lucide-react";
-import virtualTourHero from "@/assets/images/home/virtual-tour-hero.jpg";
+
 
 const VirtualTourHighlightSection = () => {
   return (
     <section className="monastery-section" style={{ background: 'var(--hero-bg)' }}>
       <div className="container mx-auto px-4">
         <div className="monastery-card max-w-4xl mx-auto text-center relative overflow-hidden">
-          <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${virtualTourHero})` }}
-          />
+          {/* Background image removed */}
           <div 
             className="absolute inset-0"
             style={{ 

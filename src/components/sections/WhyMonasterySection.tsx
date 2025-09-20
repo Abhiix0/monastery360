@@ -1,4 +1,4 @@
-import monasteryMural from "@/assets/images/home/monastery-mural.jpg";
+import monkImg from "@/assets/monk.jpg";
 
 const WhyMonasterySection = () => {
   return (
@@ -21,8 +21,8 @@ const WhyMonasterySection = () => {
           </div>
           <div className="monastery-card p-8 text-center overflow-hidden">
             <img 
-              src={monasteryMural}
-              alt="Buddhist monastery mural artwork depicting spiritual heritage"
+              src={monkImg}
+              alt="Monk at monastery"
               className="w-full h-64 object-cover rounded-xl mb-4"
               loading="lazy"
             />
