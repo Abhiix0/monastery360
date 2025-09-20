@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { Search, Filter, MapPin, Users, Star } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import rumtekImg from "../assets/rumtek1.jpg";
+import pemyangtseImg from "../assets/pemyangtse1.png";
+import tashidingImg from "../assets/tashiding1.jpg";
 
 const Explore = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +18,7 @@ const Explore = () => {
       name: "Rumtek Monastery (Dharma Chakra Centre)",
       location: "24 km from Gangtok, Sikkim, India (altitude: 1,500m)",
       region: "asia",
-  image: "https://files.oaiusercontent.com/file-1e7e2e7e-6b7e-4e2e-8e2e-2e7e2e7e2e7e/rumtek-festival.jpg",
+  image: rumtekImg,
       description: "Largest monastery in Sikkim, seat of the Karmapa Lama, replica of the original Kagyu sect HQ in Tibet. Houses sacred relics, golden stupa, and Karma Shri Nalanda Institute. Features seven auspicious attributes and a magnificent four-story temple.",
       visitors: "Varies",
       rating: 4.9,
@@ -27,7 +30,7 @@ const Explore = () => {
       name: "Pemyangtse Monastery",
       location: "Near Pelling, West Sikkim, India (2,085m elevation)",
       region: "asia",
-      image: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Pemayangtse_Monastery_Sikkim_India.jpg",
+  image: pemyangtseImg,
       description: "Second oldest and premier Nyingma monastery in Sikkim. Three-storied Tibetan architecture, Zangdok Palri, panoramic Kanchenjunga views, ancient murals, and gold-plated Guru Padmasambhava statue.",
       visitors: "Varies",
       rating: 4.8,
@@ -39,7 +42,7 @@ const Explore = () => {
       name: "Tashiding Monastery",
       location: "West Sikkim, 27 km from Gyalshing, India",
       region: "asia",
-      image: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Tashiding_Monastery_Sikkim_India.jpg",
+  image: tashidingImg,
       description: "Most sacred and holiest monastery in Sikkim, called 'Heart of Sikkim'. Home to Thong-Wa-Rang-Dol chorten, 41 chortens, and spectacular Kanchenjunga backdrop.",
       visitors: "Varies",
       rating: 4.7,

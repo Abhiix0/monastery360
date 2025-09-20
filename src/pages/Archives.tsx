@@ -1,3 +1,6 @@
+import rumtekImg from "../assets/rumtek1.jpg";
+import pemyangtseImg from "../assets/pemyangtse1.png";
+import tashidingImg from "../assets/tashiding1.jpg";
 import { useState } from "react";
 import { Search, Filter, FileText, Image, Scroll, Download, Eye, Heart } from "lucide-react";
 import Header from "@/components/Header";
@@ -39,7 +42,7 @@ const Archives = () => {
       location: "Sikkim, India",
       century: "18th-20th Century",
       description: `108-volume Kangyur. Largest Buddhist monastery in Sikkim, seat-in-exile of the Karmapa. Founded in 1734, rebuilt after 1956, houses precious relics, texts, and a golden stupa.`,
-      image: "https://files.oaiusercontent.com/file-1e7e2e7e-6b7e-4e2e-8e2e-2e7e2e7e2e7e/rumtek-festival.jpg",
+  image: rumtekImg,
       views: 3200,
       likes: 210,
       downloadable: false
@@ -52,7 +55,7 @@ const Archives = () => {
       location: "Pelling, Sikkim, India",
       century: "17th Century",
       description: `Founded by Lhatsun Namkha Jigme in 1647. Main seat of his lineage, designed for “pure monks.” Renowned for murals, statues, and Guru Rinpoche’s Heavenly Palace. Houses Kangyur and Tangyur collections.`,
-      image: "https://upload.wikimedia.org/wikipedia/commons/7/7e/Pemayangtse_Monastery_Sikkim_India.jpg",
+  image: pemyangtseImg,
       views: 2500,
       likes: 180,
       downloadable: false
@@ -65,7 +68,7 @@ const Archives = () => {
       location: "West Sikkim, India",
       century: "17th Century",
   description: `Holiest monastery in Sikkim, founded in 1641. Known for Thongwa Rangdol Shrine (washes away sins by sight), 41 chortens, and the Bumchu festival with its sacred water vase.`,
-      image: "https://upload.wikimedia.org/wikipedia/commons/3/3d/Tashiding_Monastery_Sikkim_India.jpg",
+  image: tashidingImg,
       views: 2100,
       likes: 150,
       downloadable: false
